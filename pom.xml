@@ -17,19 +17,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>com.cloudbees</groupId>
-    <artifactId>cloudbees-oss-parent</artifactId>
-    <version>8</version>
-  </parent>
-
-  <groupId>com.cloudbees.thirdparty</groupId>
+  <groupId>com.speedledger</groupId>
   <artifactId>zendesk-java-client</artifactId>
-  <version>0.7.1-SNAPSHOT</version>
+  <version>0.1.0</version>
 
   <name>zendesk-java-client</name>
   <description>Java client for the Zendesk API</description>
-  <url>https://github.com/cloudbees/zendesk-java-client</url>
+  <url>https://github.com/koundinyagoparaju/zendesk-java-client</url>
   <inceptionYear>2013</inceptionYear>
   <licenses>
     <license>
@@ -38,54 +32,58 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  <distributionManagement>
+    <repository>
+      <id>
+        speedledgerRepository
+      </id>
+      <url>
+        https://artifactory.speedledger.net/libs-release-local
+      </url>
+    </repository>
+    <snapshotRepository>
+      <id>
+        speedledgerRepository
+      </id>
+      <url>
+        https://artifactory.speedledger.net/libs-snapshot-local
+      </url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <developers>
     <developer>
-      <name>Stephen Connolly</name>
-    </developer>
-    <developer>
-      <name>Johno Crawford</name>
-    </developer>
-    <developer>
-      <name>Matt Tucker</name>
-    </developer>
-    <developer>
-      <name>Yoann Dubreuil</name>
-    </developer>
-    <developer>
-      <name>Arnaud Héritier</name>
+      <name>
+        Koundinya Goparaju
+      </name>
+      <organization>
+        Speedledger AB
+      </organization>
+      <email>
+        kg@speedledger.se
+      </email>
     </developer>
   </developers>
-
-  <mailingLists>
-    <mailingList>
-      <name>Zendesk Java Client User List</name>
-      <subscribe>zendesk-java-client-users+subscribe@googlegroups.com</subscribe>
-      <unsubscribe>zendesk-java-client-users+unsubscribe@googlegroups.com</unsubscribe>
-      <post>zendesk-java-client-users@googlegroups.com</post>
-      <archive>https://groups.google.com/forum/#!forum/zendesk-java-client-users</archive>
-    </mailingList>
-  </mailingLists>
 
   <prerequisites>
     <maven>3.0.4</maven>
   </prerequisites>
 
   <scm>
-    <connection>scm:git:git://github.com/cloudbees/zendesk-java-client.git</connection>
-    <developerConnection>scm:git:git@github.com:cloudbees/zendesk-java-client.git</developerConnection>
-    <url>http://github.com/cloudbees/zendesk-java-client/tree/master/</url>
+    <connection>scm:git:git://github.com/koundinyagoparaju/zendesk-java-client.git</connection>
+    <developerConnection>scm:git:git@github.com:koundinyagoparaju/zendesk-java-client.git</developerConnection>
+    <url>http://github.com/koundinyagoparaju/zendesk-java-client/tree/master/</url>
     <tag>HEAD</tag>
   </scm>
 
   <issueManagement>
     <system>github</system>
-    <url>https://github.com/cloudbees/zendesk-java-client/issues</url>
+    <url>https://github.com/koundinyagoparaju/zendesk-java-client/issues</url>
   </issueManagement>
 
   <ciManagement>
-    <system>jenkins</system>
-    <url>https://opensource.ci.cloudbees.com/job/zendesk-java-client/</url>
+    <system>Wercker</system>
+    <url>https://app.wercker.com/Speedledger/zendesk-java-client/</url>
   </ciManagement>
 
   <properties>
@@ -93,18 +91,6 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <jackson.version>2.1.4</jackson.version>
   </properties>
-
-  <!--<dependencyManagement>-->
-    <!--<dependencies>-->
-      <!--<dependency>-->
-        <!--<groupId>com.fasterxml.jackson</groupId>-->
-        <!--<artifactId>jackson-bom</artifactId>-->
-        <!--<version>2.1.4</version>-->
-        <!--<type>pom</type>-->
-        <!--<scope>import</scope>-->
-      <!--</dependency>-->
-    <!--</dependencies>-->
-  <!--</dependencyManagement>-->
 
   <dependencies>
     <dependency>
