@@ -3,8 +3,11 @@ package org.zendesk.client.v2.model;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.zendesk.client.v2.StringArrayDeserializer;
+import org.zendesk.client.v2.StringArraySerializer;
 
 /**
  * @author stephenc
@@ -17,8 +20,8 @@ public class CustomFieldValue implements Serializable {
 
     private Long id;
 
-    @JsonFormat(with = {JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY,
-            JsonFormat.Feature.WRITE_SINGLE_ELEM_ARRAYS_UNWRAPPED})
+    @JsonDeserialize(using = StringArrayDeserializer.class)
+    @JsonSerialize(using = StringArraySerializer.class)
     private String[] value;
 
     public CustomFieldValue() {

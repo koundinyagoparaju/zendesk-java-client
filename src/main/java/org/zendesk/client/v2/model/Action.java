@@ -1,6 +1,9 @@
 package org.zendesk.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.zendesk.client.v2.StringArrayDeserializer;
+import org.zendesk.client.v2.StringArraySerializer;
 
 import java.util.Arrays;
 
@@ -12,8 +15,8 @@ public class Action {
 
     private String field;
 
-    @JsonFormat(with = {JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY,
-            JsonFormat.Feature.WRITE_SINGLE_ELEM_ARRAYS_UNWRAPPED})
+    @JsonDeserialize(using = StringArrayDeserializer.class)
+    @JsonSerialize(using = StringArraySerializer.class)
     private String[] value;
 
     public Action() {
